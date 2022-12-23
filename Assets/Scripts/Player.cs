@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
     Vector3 strafe;
     Vector3 vertical;
 
-    float forwardSpeed = 5f;
-    float strafeSpeed = 5f;
+    float forwardSpeed = 8f;
+    float strafeSpeed = 8f;
 
     float gravity;
     float jumpSpeed;

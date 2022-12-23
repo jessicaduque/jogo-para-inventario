@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mushroom
   m_EditorClassIdentifier: 
   itemName: Mushroom
-  itemSprite: {fileID: 21300000, guid: 68d75d82f1b066a4c8fbd88cc93caf4a, type: 3}
+  itemSprite: {fileID: 21300000, guid: ec862fb262e083f47a9ba3296dc9cc3f, type: 3}

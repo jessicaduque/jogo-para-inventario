@@ -7,6 +7,9 @@ public class InventoryController: MonoBehaviour
 {
     public Objects[] slots;
     public Image[] slotImage;
+    public Image[] quantidadeImage;
+    public Image[] quantidadeFundoImage;
+    public Text[] quantidadesText;
     public int[] slotAmount;
     private float rangeRay = 5f;
 
@@ -35,13 +38,17 @@ public class InventoryController: MonoBehaviour
                         // Adiciona caso ja exista ou caso for o Item type igual adiciona mais um.
                         if (slots[i] == null || slots[i].name == hit.transform.GetComponent<ObjectType>().objectype.name)
                         {
-                            //adiciona ao slot o objeto em observação
+                            // Adiciona ao slot o objeto em observação
                             slots[i] = hit.transform.GetComponent<ObjectType>().objectype;
-                            //Incrementa a quantidade do item caso ja tenha ou gera caso n tenha
+                            // Incrementa a quantidade do item caso ja tenha ou gera caso n tenha
                             slotAmount[i]++;
-                            //adiciona imagem a ele
+                            // Ativa a imagem da quantidade do item e seu fundo
+                            quantidadeFundoImage[i].gameObject.SetActive(true);
+                            quantidadeImage[i].gameObject.SetActive(true);
+                            // Altera a quantidade descrita do item
+                            quantidadesText[i].GetComponent<Text>().text = slotAmount[i].ToString();
+                            // Adiciona imagem a ele
                             slotImage[i].sprite = slots[i].itemSprite;
-
                             Destroy(hit.transform.gameObject);
                             break;
                         }
