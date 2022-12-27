@@ -5,8 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
-    // Velocidade de movimento
-    public float moveSpeed;
+    // Velocidade de movimento para andar e correr
+    private float moveSpeed;
+    public float walkSpeed;
+    public float sprintSpeed;
 
     public float groundDrag;
 
@@ -16,9 +18,11 @@ public class Player : MonoBehaviour
     public float airMultiplier;
     bool readyToJump;
 
-    // Escolha da tecla para o pulo
+    // Escolha da tecla para o pulo e para correr
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
+
 
     // Checar se o player está ou não no chão para se mover
     [Header("Ground check")]
@@ -39,6 +43,15 @@ public class Player : MonoBehaviour
     // Rigidbody do player
     Rigidbody rb;
 
+    // Estado de movimento do player
+    public MovementState state;
+    public enum MovementState
+    {
+        walking,
+        sprinting,
+        air
+    }
+
     private void Start()
     {
         // Pegar o rigidbody do player e congelar sua rotação
@@ -54,6 +67,7 @@ public class Player : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         MyInput();
         SpeedControl();
+        StateHandler();
 
         // A partir do cheque de chão faz o rag do player
         if (grounded)
@@ -82,7 +96,6 @@ public class Player : MonoBehaviour
         // Quando player deve pular
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
-            Debug.Log("Entrou");
             readyToJump = false;
 
             Jump();
@@ -93,6 +106,28 @@ public class Player : MonoBehaviour
 
     }
 
+    private void StateHandler()
+    {
+        // Modo: Correndo (Sprinting)
+        if(grounded && Input.GetKey(sprintKey))
+        {
+            state = MovementState.sprinting;
+            moveSpeed = sprintSpeed;
+        }
+
+        // Modo: Andando
+        else if (grounded)
+        {
+            state = MovementState.walking;
+            moveSpeed = walkSpeed;
+        }
+
+        // Modo: No ar
+        else
+        {
+            state = MovementState.air;
+        }
+    }
     private void MovePlayer()
     {
         // Calcular direção do movimento
@@ -107,7 +142,7 @@ public class Player : MonoBehaviour
         // No ar
         else if(!grounded)
         {
-            rb.AddForce(moveDirection.normalized * moveSpeed * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
     }
 

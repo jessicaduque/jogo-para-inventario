@@ -200,30 +200,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26220574}
   m_CullTransparentMesh: 1
---- !u!1 &30897927 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8957304962413023527, guid: 3f9b178ccd3b86f4ebbfc1f5a2815e56, type: 3}
-  m_PrefabInstance: {fileID: 878760923}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &30897932 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8031339192871210686, guid: 3f9b178ccd3b86f4ebbfc1f5a2815e56, type: 3}
   m_PrefabInstance: {fileID: 878760923}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &30897933
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30897927}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 661464e19c087564badb2bf5230c842c, type: 3}
 --- !u!1001 &42396050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -838,17 +819,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c0eba31c7047042a37e275e0ba13d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  walkSpeed: 7
+  sprintSpeed: 12
   groundDrag: 5
-  jumpForce: 12
+  jumpForce: 9
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumpKey: 32
+  sprintKey: 304
   playerHeight: 4.2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   orientation: {fileID: 1232959823}
+  state: 0
 --- !u!1 &249353959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,6 +2317,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1615305531}
     m_Modifications:
+    - target: {fileID: 6179971859430226796, guid: 3f9b178ccd3b86f4ebbfc1f5a2815e56, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8031339192871210686, guid: 3f9b178ccd3b86f4ebbfc1f5a2815e56, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2538,8 +2526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc0f4346ba4c564caf80f2d993a8101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 380
-  sensY: 380
+  sensX: 400
+  sensY: 400
   orientation: {fileID: 1232959823}
 --- !u!4 &965232547 stripped
 Transform:
