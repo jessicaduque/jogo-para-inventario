@@ -5,12 +5,28 @@ using UnityEngine.UI;
 
 public class InventoryController: MonoBehaviour
 {
-    public Objects[] slots;
-    public Image[] slotImage;
-    public Image[] quantidadeImage;
-    public Image[] quantidadeFundoImage;
-    public Text[] quantidadesText;
-    public int[] slotAmount;
+    // Inventário do player
+    public Objects[] slotsInv;
+    public Image[] slotImageInv;
+    public Image[] quantidadeImageInv;
+    public Image[] quantidadeFundoImageInv;
+    public Text[] quantidadesTextInv;
+    public int[] slotAmountInv;
+
+    // Espaço de um baú
+    public Objects[] slotsChest;
+    public Image[] slotImageChest;
+    public Image[] quantidadeImageChest;
+    public Image[] quantidadeFundoImageChest;
+    public Text[] quantidadesTextChest;
+
+    // Inventário do player quando um baú é aberto
+    public Objects[] slotsChestInv;
+    public Image[] slotImageChestInv;
+    public Image[] quantidadeImageChestInv;
+    public Image[] quantidadeFundoImageChestInv;
+    public Text[] quantidadesTextChestInv;
+
     private float rangeRay = 5f;
 
     private InterfaceController iController;
@@ -32,29 +48,58 @@ public class InventoryController: MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    for (int i = 0; i < slots.Length; i++)
+                    for (int i = 0; i < slotsInv.Length; i++)
                     {
 
                         // Adiciona caso ja exista ou caso for o Item type igual adiciona mais um.
-                        if (slots[i] == null || slots[i].name == hit.transform.GetComponent<ObjectType>().objectype.name)
+                        if (slotsInv[i] == null || slotsInv[i].name == hit.transform.GetComponent<ObjectType>().objectype.name)
                         {
                             // Adiciona ao slot o objeto em observação
-                            slots[i] = hit.transform.GetComponent<ObjectType>().objectype;
+                            slotsInv[i] = hit.transform.GetComponent<ObjectType>().objectype;
                             // Incrementa a quantidade do item caso ja tenha ou gera caso n tenha
-                            slotAmount[i]++;
+                            slotAmountInv[i]++;
                             // Ativa a imagem da quantidade do item e seu fundo
-                            quantidadeFundoImage[i].gameObject.SetActive(true);
-                            quantidadeImage[i].gameObject.SetActive(true);
+                            quantidadeFundoImageInv[i].gameObject.SetActive(true);
+                            quantidadeImageInv[i].gameObject.SetActive(true);
                             // Altera a quantidade descrita do item
-                            quantidadesText[i].GetComponent<Text>().text = slotAmount[i].ToString();
+                            quantidadesTextInv[i].GetComponent<Text>().text = slotAmountInv[i].ToString();
                             // Adiciona imagem a ele
-                            slotImage[i].sprite = slots[i].itemSprite;
+                            slotImageInv[i].sprite = slotsInv[i].itemSprite;
                             Destroy(hit.transform.gameObject);
                             break;
                         }
                     }
                 }
             } 
+            else if(hit.collider.tag == "Chest")
+            {
+                iController.itemText.text = "Press (E) to open the Chest" + hit.transform.GetComponent<ObjectType>().objectype.name;
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    for (int i = 0; i < slotsInv.Length; i++)
+                    {
+
+                        // Adiciona caso ja exista ou caso for o Item type igual adiciona mais um.
+                        if (slotsInv[i] == null || slotsInv[i].name == hit.transform.GetComponent<ObjectType>().objectype.name)
+                        {
+                            // Adiciona ao slot o objeto em observação
+                            slotsInv[i] = hit.transform.GetComponent<ObjectType>().objectype;
+                            // Incrementa a quantidade do item caso ja tenha ou gera caso n tenha
+                            slotAmountInv[i]++;
+                            // Ativa a imagem da quantidade do item e seu fundo
+                            quantidadeFundoImageInv[i].gameObject.SetActive(true);
+                            quantidadeImageInv[i].gameObject.SetActive(true);
+                            // Altera a quantidade descrita do item
+                            quantidadesTextInv[i].GetComponent<Text>().text = slotAmountInv[i].ToString();
+                            // Adiciona imagem a ele
+                            slotImageInv[i].sprite = slotsInv[i].itemSprite;
+                            Destroy(hit.transform.gameObject);
+                            break;
+                        }
+                    }
+                }
+            }
             else if(hit.collider.tag != "Object") 
             {
                 iController.itemText.text = null;
@@ -64,5 +109,13 @@ public class InventoryController: MonoBehaviour
         {
             iController.itemText.text = null;
         }
+    }
+
+    // Função que vai atualizar o inventário que aparece ao abrir baús com o inventário normal. Ao receber os seguintes números:
+    // 0: Atualiza o inventário para báu
+    // 1: Atualiza o inventário normal
+    void SyncInventories(int invParaAtualizar)
+    {
+        // A criar
     }
 }

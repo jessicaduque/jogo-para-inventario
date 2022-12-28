@@ -1165,16 +1165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741a1ec4b75388048bfc0a4a5ced2dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  slotImage:
+  slotsInv: []
+  slotImageInv:
   - {fileID: 1093316208}
   - {fileID: 1069957509}
   - {fileID: 1992518546}
@@ -1183,7 +1175,7 @@ MonoBehaviour:
   - {fileID: 1329705678}
   - {fileID: 642641957}
   - {fileID: 1641196116}
-  quantidadeImage:
+  quantidadeImageInv:
   - {fileID: 1417166846}
   - {fileID: 500433191}
   - {fileID: 26220576}
@@ -1192,7 +1184,7 @@ MonoBehaviour:
   - {fileID: 270060871}
   - {fileID: 149629794}
   - {fileID: 2027316618}
-  quantidadeFundoImage:
+  quantidadeFundoImageInv:
   - {fileID: 515099048}
   - {fileID: 470133355}
   - {fileID: 1516753720}
@@ -1201,7 +1193,7 @@ MonoBehaviour:
   - {fileID: 1106859023}
   - {fileID: 1130034642}
   - {fileID: 1283676397}
-  quantidadesText:
+  quantidadesTextInv:
   - {fileID: 729781211}
   - {fileID: 1108209792}
   - {fileID: 834520951}
@@ -1210,7 +1202,81 @@ MonoBehaviour:
   - {fileID: 365476178}
   - {fileID: 1258933153}
   - {fileID: 1550051400}
-  slotAmount: 0000000000000000000000000000000000000000000000000000000000000000
+  slotAmountInv: 
+  slotsChest: []
+  slotImageChest:
+  - {fileID: 816235846}
+  - {fileID: 1300823176}
+  - {fileID: 1837666079}
+  - {fileID: 1590431521}
+  - {fileID: 962924983}
+  - {fileID: 587696526}
+  - {fileID: 59638026}
+  - {fileID: 630005032}
+  quantidadeImageChest:
+  - {fileID: 1438991825}
+  - {fileID: 555891499}
+  - {fileID: 913155540}
+  - {fileID: 1679279592}
+  - {fileID: 1688691655}
+  - {fileID: 607064178}
+  - {fileID: 1425022670}
+  - {fileID: 1338209069}
+  quantidadeFundoImageChest:
+  - {fileID: 985686616}
+  - {fileID: 1691449192}
+  - {fileID: 1401079431}
+  - {fileID: 1337284583}
+  - {fileID: 649180936}
+  - {fileID: 1358058717}
+  - {fileID: 1319584217}
+  - {fileID: 1976426511}
+  quantidadesTextChest:
+  - {fileID: 1703858470}
+  - {fileID: 2059027099}
+  - {fileID: 1812952386}
+  - {fileID: 1005658136}
+  - {fileID: 953632833}
+  - {fileID: 1887270607}
+  - {fileID: 8286149}
+  - {fileID: 768671990}
+  slotsChestInv: []
+  slotImageChestInv:
+  - {fileID: 1689528630}
+  - {fileID: 811324769}
+  - {fileID: 778385616}
+  - {fileID: 735874819}
+  - {fileID: 1071651309}
+  - {fileID: 1845126446}
+  - {fileID: 797320923}
+  - {fileID: 983465388}
+  quantidadeImageChestInv:
+  - {fileID: 1155226152}
+  - {fileID: 651941597}
+  - {fileID: 304624623}
+  - {fileID: 2077313534}
+  - {fileID: 1403033421}
+  - {fileID: 1984532367}
+  - {fileID: 1877572549}
+  - {fileID: 1674025227}
+  quantidadeFundoImageChestInv:
+  - {fileID: 179037205}
+  - {fileID: 931080248}
+  - {fileID: 1628313451}
+  - {fileID: 340587300}
+  - {fileID: 26071029}
+  - {fileID: 1934898547}
+  - {fileID: 1715233947}
+  - {fileID: 1365968619}
+  quantidadesTextChestInv:
+  - {fileID: 1020145260}
+  - {fileID: 1975465180}
+  - {fileID: 1673992386}
+  - {fileID: 740071933}
+  - {fileID: 1773099030}
+  - {fileID: 1381683560}
+  - {fileID: 809087774}
+  - {fileID: 1699605507}
 --- !u!1 &249353959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,12 +1302,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249353959}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 441487487}
+  m_Father: {fileID: 1864646555}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1455,7 +1521,7 @@ GameObject:
   - component: {fileID: 304624624}
   - component: {fileID: 304624623}
   m_Layer: 5
-  m_Name: Quantidade5
+  m_Name: Quantidade3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2042,9 +2108,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 80604918}
-  - {fileID: 936416195}
   - {fileID: 1554446098}
-  - {fileID: 249353960}
+  - {fileID: 936416195}
   - {fileID: 1864646555}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -2509,7 +2574,7 @@ GameObject:
   - component: {fileID: 607064179}
   - component: {fileID: 607064178}
   m_Layer: 5
-  m_Name: Quantidade4
+  m_Name: Quantidade6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3388,7 +3453,7 @@ GameObject:
   - component: {fileID: 740071934}
   - component: {fileID: 740071933}
   m_Layer: 5
-  m_Name: Qtd6
+  m_Name: Qtd4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4135,7 +4200,7 @@ GameObject:
   - component: {fileID: 913155541}
   - component: {fileID: 913155540}
   m_Layer: 5
-  m_Name: Quantidade5
+  m_Name: Quantidade3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4388,7 +4453,7 @@ GameObject:
   - component: {fileID: 953632834}
   - component: {fileID: 953632833}
   m_Layer: 5
-  m_Name: Qtd3
+  m_Name: Qtd5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4841,7 +4906,7 @@ GameObject:
   - component: {fileID: 1005658137}
   - component: {fileID: 1005658136}
   m_Layer: 5
-  m_Name: Qtd6
+  m_Name: Qtd4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6754,7 +6819,7 @@ GameObject:
   - component: {fileID: 1381683561}
   - component: {fileID: 1381683560}
   m_Layer: 5
-  m_Name: Qtd4
+  m_Name: Qtd6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6947,7 +7012,7 @@ GameObject:
   - component: {fileID: 1403033422}
   - component: {fileID: 1403033421}
   m_Layer: 5
-  m_Name: Quantidade3
+  m_Name: Quantidade5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8318,7 +8383,7 @@ GameObject:
   - component: {fileID: 1673992387}
   - component: {fileID: 1673992386}
   m_Layer: 5
-  m_Name: Qtd5
+  m_Name: Qtd3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8477,7 +8542,7 @@ GameObject:
   - component: {fileID: 1679279593}
   - component: {fileID: 1679279592}
   m_Layer: 5
-  m_Name: Quantidade6
+  m_Name: Quantidade4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8554,7 +8619,7 @@ GameObject:
   - component: {fileID: 1688691656}
   - component: {fileID: 1688691655}
   m_Layer: 5
-  m_Name: Quantidade3
+  m_Name: Quantidade5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9101,7 +9166,7 @@ GameObject:
   - component: {fileID: 1773099031}
   - component: {fileID: 1773099030}
   m_Layer: 5
-  m_Name: Qtd3
+  m_Name: Qtd5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9261,7 +9326,7 @@ GameObject:
   - component: {fileID: 1812952387}
   - component: {fileID: 1812952386}
   m_Layer: 5
-  m_Name: Qtd5
+  m_Name: Qtd3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9649,6 +9714,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1763015214}
+  - {fileID: 249353960}
   m_Father: {fileID: 441487487}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9789,7 +9855,7 @@ GameObject:
   - component: {fileID: 1887270608}
   - component: {fileID: 1887270607}
   m_Layer: 5
-  m_Name: Qtd4
+  m_Name: Qtd6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10297,7 +10363,7 @@ GameObject:
   - component: {fileID: 1984532368}
   - component: {fileID: 1984532367}
   m_Layer: 5
-  m_Name: Quantidade4
+  m_Name: Quantidade6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10686,7 +10752,7 @@ GameObject:
   - component: {fileID: 2077313535}
   - component: {fileID: 2077313534}
   m_Layer: 5
-  m_Name: Quantidade6
+  m_Name: Quantidade4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
