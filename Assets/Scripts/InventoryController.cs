@@ -61,5 +61,9 @@ public class InventoryController: MonoBehaviour
                 iController.itemText.text = null;
             }
         }
+        else
+        {
+            iController.itemText.text = null;
+        }
     }
 }

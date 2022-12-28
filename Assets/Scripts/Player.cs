@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     [Header("Ground check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    public LayerMask coletaveis;
+    public LayerMask objetos;
     bool grounded;
 
     // Transform da orientação
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         // Usa o raycast apontado para baixo para checar se o player está ou não no chão
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround) || Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, coletaveis);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround) || Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, objetos);
         MyInput();
         SpeedControl();
         StateHandler();
