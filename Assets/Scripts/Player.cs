@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
     {
         // Usa o raycast apontado para baixo para checar se o player está ou não no chão
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround) || Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, objetos);
+        Debug.Log(grounded);
         MyInput();
         SpeedControl();
         StateHandler();
