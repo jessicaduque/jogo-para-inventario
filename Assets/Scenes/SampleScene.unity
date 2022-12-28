@@ -1165,7 +1165,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741a1ec4b75388048bfc0a4a5ced2dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotsInv: []
+  slotsInv:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   slotImageInv:
   - {fileID: 1093316208}
   - {fileID: 1069957509}
@@ -1203,7 +1211,15 @@ MonoBehaviour:
   - {fileID: 1258933153}
   - {fileID: 1550051400}
   slotAmountInv: 
-  slotsChest: []
+  slotsChest:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   slotImageChest:
   - {fileID: 816235846}
   - {fileID: 1300823176}
@@ -1240,6 +1256,7 @@ MonoBehaviour:
   - {fileID: 1887270607}
   - {fileID: 8286149}
   - {fileID: 768671990}
+  slotAmountChest: 
   slotsChestInv: []
   slotImageChestInv:
   - {fileID: 1689528630}
@@ -1277,6 +1294,7 @@ MonoBehaviour:
   - {fileID: 1381683560}
   - {fileID: 809087774}
   - {fileID: 1699605507}
+  slotAmountChestInv: 
 --- !u!1 &249353959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,7 +2046,7 @@ GameObject:
   - component: {fileID: 441487488}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2132,8 +2150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryPanel: {fileID: 80604917}
-  itemText: {fileID: 249353961}
+  chestPanel: {fileID: 1554446097}
+  chestInventoryPanel: {fileID: 936416194}
   centroTela: {fileID: 1763015215}
+  itemText: {fileID: 249353961}
 --- !u!1 &470133353
 GameObject:
   m_ObjectHideFlags: 0
@@ -4698,8 +4718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc0f4346ba4c564caf80f2d993a8101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 60
-  sensY: 60
+  sensX: 400
+  sensY: 400
   orientation: {fileID: 1232959823}
 --- !u!4 &965232547 stripped
 Transform:

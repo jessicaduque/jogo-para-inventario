@@ -19,6 +19,7 @@ public class InventoryController: MonoBehaviour
     public Image[] quantidadeImageChest;
     public Image[] quantidadeFundoImageChest;
     public Text[] quantidadesTextChest;
+    public int[] slotAmountChest;
 
     // Inventário do player quando um baú é aberto
     public Objects[] slotsChestInv;
@@ -26,6 +27,7 @@ public class InventoryController: MonoBehaviour
     public Image[] quantidadeImageChestInv;
     public Image[] quantidadeFundoImageChestInv;
     public Text[] quantidadesTextChestInv;
+    public int[] slotAmountChestInv;
 
     private float rangeRay = 5f;
 
@@ -48,6 +50,7 @@ public class InventoryController: MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    Debug.Log("Entrou");
                     for (int i = 0; i < slotsInv.Length; i++)
                     {
 
@@ -73,31 +76,35 @@ public class InventoryController: MonoBehaviour
             } 
             else if(hit.collider.tag == "Chest")
             {
-                iController.itemText.text = "Press (E) to open the Chest" + hit.transform.GetComponent<ObjectType>().objectype.name;
+                iController.itemText.text = "Press (E) to open the Chest";
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    for (int i = 0; i < slotsInv.Length; i++)
+
+                    GameObject.FindGameObjectWithTag("Canvas").GetComponent<InterfaceController>().Chest();
+
+                    /**
+                    for (int i = 0; i < slotsChest.Length; i++)
                     {
 
                         // Adiciona caso ja exista ou caso for o Item type igual adiciona mais um.
-                        if (slotsInv[i] == null || slotsInv[i].name == hit.transform.GetComponent<ObjectType>().objectype.name)
+                        if (slotsChest[i] == null || slotsChest[i].name == hit.transform.GetComponent<ObjectType>().objectype.name)
                         {
                             // Adiciona ao slot o objeto em observação
-                            slotsInv[i] = hit.transform.GetComponent<ObjectType>().objectype;
+                            slotsChest[i] = hit.transform.GetComponent<ObjectType>().objectype;
                             // Incrementa a quantidade do item caso ja tenha ou gera caso n tenha
-                            slotAmountInv[i]++;
+                            slotAmountChest[i]++;
                             // Ativa a imagem da quantidade do item e seu fundo
-                            quantidadeFundoImageInv[i].gameObject.SetActive(true);
-                            quantidadeImageInv[i].gameObject.SetActive(true);
+                            quantidadeFundoImageChest[i].gameObject.SetActive(true);
+                            quantidadeImageChest[i].gameObject.SetActive(true);
                             // Altera a quantidade descrita do item
-                            quantidadesTextInv[i].GetComponent<Text>().text = slotAmountInv[i].ToString();
+                            quantidadesTextChest[i].GetComponent<Text>().text = slotAmountChest[i].ToString();
                             // Adiciona imagem a ele
-                            slotImageInv[i].sprite = slotsInv[i].itemSprite;
+                            slotImageChest[i].sprite = slotsChest[i].itemSprite;
                             Destroy(hit.transform.gameObject);
                             break;
                         }
-                    }
+                    }**/
                 }
             }
             else if(hit.collider.tag != "Object") 
