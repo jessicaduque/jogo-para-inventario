@@ -79,31 +79,13 @@ public class InventoryController: MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-
-                    GameObject.FindGameObjectWithTag("Canvas").GetComponent<InterfaceController>().Chest();
-
+                    GameObject.FindGameObjectWithTag("Canvas").GetComponent<InterfaceController>().Chest(0);
                     /**
-                    for (int i = 0; i < slotsChest.Length; i++)
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-
-                        // Adiciona caso ja exista ou caso for o Item type igual adiciona mais um.
-                        if (slotsChest[i] == null || slotsChest[i].name == hit.transform.GetComponent<ObjectType>().objectype.name)
-                        {
-                            // Adiciona ao slot o objeto em observação
-                            slotsChest[i] = hit.transform.GetComponent<ObjectType>().objectype;
-                            // Incrementa a quantidade do item caso ja tenha ou gera caso n tenha
-                            slotAmountChest[i]++;
-                            // Ativa a imagem da quantidade do item e seu fundo
-                            quantidadeFundoImageChest[i].gameObject.SetActive(true);
-                            quantidadeImageChest[i].gameObject.SetActive(true);
-                            // Altera a quantidade descrita do item
-                            quantidadesTextChest[i].GetComponent<Text>().text = slotAmountChest[i].ToString();
-                            // Adiciona imagem a ele
-                            slotImageChest[i].sprite = slotsChest[i].itemSprite;
-                            Destroy(hit.transform.gameObject);
-                            break;
-                        }
+                        GameObject.FindGameObjectWithTag("Canvas").GetComponent<InterfaceController>().Chest(1);
                     }**/
+
                 }
             }
             else if(hit.collider.tag != "Object") 

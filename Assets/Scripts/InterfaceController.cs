@@ -12,7 +12,6 @@ public class InterfaceController: MonoBehaviour
     // Para o inventário do player e espaço do chest ao abrir um
     public GameObject chestPanel;
     public GameObject chestInventoryPanel;
-    bool chestActive = false;
 
     public Image centroTela;
     public Text itemText;
@@ -45,25 +44,25 @@ public class InterfaceController: MonoBehaviour
         }
     }
 
-    public void Chest()
-    {
-        chestActive = !chestActive;
-        chestPanel.SetActive(chestActive);
-        chestInventoryPanel.SetActive(chestActive);
-
-        if (chestActive)
+    public void Chest(int ligarDes)
+    {   
+        if (ligarDes == 0)
         {
+            chestPanel.SetActive(true);
+            chestInventoryPanel.SetActive(true);
             centroTela.gameObject.SetActive(false);
-            Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            Time.timeScale = 0;
         }
         else
         {
+            chestPanel.SetActive(false);
+            chestInventoryPanel.SetActive(false);
             Time.timeScale = 1;
-            centroTela.gameObject.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            centroTela.gameObject.SetActive(true);
         }
     }
 }

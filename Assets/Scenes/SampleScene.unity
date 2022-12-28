@@ -1210,7 +1210,7 @@ MonoBehaviour:
   - {fileID: 365476178}
   - {fileID: 1258933153}
   - {fileID: 1550051400}
-  slotAmountInv: 
+  slotAmountInv: 0000000000000000000000000000000000000000000000000000000000000000
   slotsChest:
   - {fileID: 0}
   - {fileID: 0}
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   - {fileID: 1887270607}
   - {fileID: 8286149}
   - {fileID: 768671990}
-  slotAmountChest: 
+  slotAmountChest: 0000000000000000000000000000000000000000000000000000000000000000
   slotsChestInv:
   - {fileID: 0}
   - {fileID: 0}
@@ -1302,7 +1302,7 @@ MonoBehaviour:
   - {fileID: 1381683560}
   - {fileID: 809087774}
   - {fileID: 1699605507}
-  slotAmountChestInv: 
+  slotAmountChestInv: 0000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &249353959
 GameObject:
   m_ObjectHideFlags: 0
