@@ -50,7 +50,6 @@ public class InventoryController: MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Debug.Log("Entrou");
                     for (int i = 0; i < slotsInv.Length; i++)
                     {
 

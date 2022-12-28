@@ -1257,7 +1257,15 @@ MonoBehaviour:
   - {fileID: 8286149}
   - {fileID: 768671990}
   slotAmountChest: 
-  slotsChestInv: []
+  slotsChestInv:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   slotImageChestInv:
   - {fileID: 1689528630}
   - {fileID: 811324769}
