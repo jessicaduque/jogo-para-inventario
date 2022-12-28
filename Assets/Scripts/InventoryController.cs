@@ -55,7 +55,6 @@ public class InventoryController: MonoBehaviour
                     }
                 }
             } 
-            
             else if(hit.collider.tag != "Object") 
             {
                 iController.itemText.text = null;
