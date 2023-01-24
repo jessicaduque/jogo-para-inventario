@@ -13,6 +13,10 @@ public class InventoryController: MonoBehaviour
     public Text[] quantidadesTextInv;
     public int[] slotAmountInv;
 
+    // Baú
+    int abriuBauCont = 0;
+    bool abriuBau = false;
+
     // Espaço de um baú
     public Objects[] slotsChest;
     public Image[] slotImageChest;
@@ -40,6 +44,10 @@ public class InventoryController: MonoBehaviour
 
     void Update()
     {
+        // Função que checa se um baú foi aberto
+        AbriuBau();
+
+        // Raycast do aim do player
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width/2, Screen.height/2));
         if (Physics.Raycast(ray, out hit, rangeRay)) 
@@ -75,17 +83,20 @@ public class InventoryController: MonoBehaviour
             } 
             else if(hit.collider.tag == "Chest")
             {
-                iController.itemText.text = "Press (E) to open the Chest";
-
-                if (Input.GetKeyDown(KeyCode.E))
+                if (abriuBauCont < 2)
                 {
-                    GameObject.FindGameObjectWithTag("Canvas").GetComponent<InterfaceController>().Chest(0);
-                    /**
+                    abriuBauCont++;
+                }
+                if (abriuBau == false && abriuBauCont == 2)
+                {
+                    iController.itemText.text = "Press (E) to open the Chest";
+
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        GameObject.FindGameObjectWithTag("Canvas").GetComponent<InterfaceController>().Chest(1);
-                    }**/
+                        GameObject.FindGameObjectWithTag("Canvas").GetComponent<InterfaceController>().Chest(0);
+                        abriuBau = true;
 
+                    }
                 }
             }
             else if(hit.collider.tag != "Object") 
@@ -98,6 +109,28 @@ public class InventoryController: MonoBehaviour
             iController.itemText.text = null;
         }
     }
+
+    void AbriuBau()
+    {
+        if(abriuBau == true)
+        {
+            SyncInventories(0);
+
+            if (abriuBauCont < 4)
+            {
+                abriuBauCont++;
+            }
+            // Desativar o menu de baú
+            if(Input.GetKeyDown(KeyCode.E) && abriuBauCont == 4)
+            {
+                abriuBauCont = 0;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<InterfaceController>().Chest(1);
+                SyncInventories(1);
+                abriuBau = false;
+            }
+        }
+    }
+
 
     // Função que vai atualizar o inventário que aparece ao abrir baús com o inventário normal. Ao receber os seguintes números:
     // 0: Atualiza o inventário para báu
