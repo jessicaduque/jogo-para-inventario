@@ -12,7 +12,7 @@ public class InterfaceController: MonoBehaviour
     // Para o inventário do player e espaço do chest ao abrir um
     public GameObject chestPanel;
     public GameObject chestInventoryPanel;
-
+    public GameObject HUDPanel;
     public Image centroTela;
     public Text itemText;
 
@@ -48,21 +48,24 @@ public class InterfaceController: MonoBehaviour
     {   
         if (ligarDes == 0)
         {
+            HUDPanel.SetActive(false);
             chestPanel.SetActive(true);
             chestInventoryPanel.SetActive(true);
-            centroTela.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Time.timeScale = 0;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().IfCanMove(1);
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FirstPersonCam>().IfCanMove(1);
         }
         else
         {
             chestPanel.SetActive(false);
             chestInventoryPanel.SetActive(false);
-            Time.timeScale = 1;
+            HUDPanel.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             centroTela.gameObject.SetActive(true);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().IfCanMove(0);
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FirstPersonCam>().IfCanMove(0);
         }
     }
 }

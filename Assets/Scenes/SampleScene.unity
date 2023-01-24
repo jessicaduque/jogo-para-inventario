@@ -1085,7 +1085,7 @@ GameObject:
   - component: {fileID: 227023548}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2160,6 +2160,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 80604917}
   chestPanel: {fileID: 1554446097}
   chestInventoryPanel: {fileID: 936416194}
+  HUDPanel: {fileID: 1864646554}
   centroTela: {fileID: 1763015215}
   itemText: {fileID: 249353961}
 --- !u!1 &470133353
