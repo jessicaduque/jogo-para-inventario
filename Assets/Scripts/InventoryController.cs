@@ -137,6 +137,9 @@ public class InventoryController: MonoBehaviour
     // 1: Atualiza o inventário normal
     void SyncInventories(int invParaAtualizar)
     {
-        // A criar
+        if(invParaAtualizar == 0)
+        {
+
+        }
     }
 }
