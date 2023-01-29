@@ -174,7 +174,24 @@ public class InventoryController: MonoBehaviour
         }
         else
         {
-
+            for (int i = 0; i < slotsChestInv.Length; i++)
+            {
+                if (slotsChestInv[i] != null)
+                {
+                    slotsInv[i] = slotsChestInv[i];
+                    slotAmountInv[i] = slotAmountChestInv[i];
+                    quantidadeFundoImageInv[i].gameObject.SetActive(true);
+                    quantidadeImageInv[i].gameObject.SetActive(true);
+                    quantidadesTextInv[i].GetComponent<Text>().text = slotAmountInv[i].ToString();
+                    slotImageInv[i].sprite = slotsChestInv[i].itemSprite;
+                }
+                else
+                {
+                    quantidadeFundoImageInv[i].gameObject.SetActive(false);
+                    quantidadeImageInv[i].gameObject.SetActive(false);
+                    slotImageInv[i].sprite = slotVazio;
+                }
+            }
         }
     }
 }
