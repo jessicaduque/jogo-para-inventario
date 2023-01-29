@@ -16,6 +16,7 @@ public class InventoryController: MonoBehaviour
     // Baú
     int abriuBauCont = 0;
     bool abriuBau = false;
+    public Sprite slotVazio;
 
     // Espaço de um baú
     public Objects[] slotsChest;
@@ -93,9 +94,10 @@ public class InventoryController: MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        slotsChest = hit.transform.GetComponent<ChestItems>().itensChest;
+                        slotAmountChest = hit.transform.GetComponent<ChestItems>().quantItensChest;
                         GameObject.FindGameObjectWithTag("Canvas").GetComponent<InterfaceController>().Chest(0);
                         abriuBau = true;
-
                     }
                 }
             }
@@ -151,6 +153,28 @@ public class InventoryController: MonoBehaviour
                     slotImageChestInv[i].sprite = slotsInv[i].itemSprite;
                 }
             }
+
+            for (int i = 0; i < slotsChest.Length; i++)
+            {
+                if (slotsChest[i] != null)
+                {
+                    quantidadeFundoImageChest[i].gameObject.SetActive(true);
+                    quantidadeImageChest[i].gameObject.SetActive(true);
+                    quantidadesTextChest[i].GetComponent<Text>().text = slotAmountChest[i].ToString();
+                    slotImageChest[i].sprite = slotsChest[i].itemSprite;
+                }
+                else
+                {
+                    quantidadeFundoImageChest[i].gameObject.SetActive(false);
+                    quantidadeImageChest[i].gameObject.SetActive(false);
+                    slotImageChest[i].sprite = slotVazio;
+                }
+            }
+
+        }
+        else
+        {
+
         }
     }
 }
