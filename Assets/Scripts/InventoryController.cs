@@ -139,7 +139,18 @@ public class InventoryController: MonoBehaviour
     {
         if(invParaAtualizar == 0)
         {
-
+            for (int i = 0; i < slotsInv.Length; i++)
+            {
+                if (slotsInv[i] != null)
+                {
+                    slotsChestInv[i] = slotsInv[i];
+                    slotAmountChestInv[i] = slotAmountInv[i];
+                    quantidadeFundoImageChestInv[i].gameObject.SetActive(true);
+                    quantidadeImageChestInv[i].gameObject.SetActive(true);
+                    quantidadesTextChestInv[i].GetComponent<Text>().text = slotAmountChestInv[i].ToString();
+                    slotImageChestInv[i].sprite = slotsInv[i].itemSprite;
+                }
+            }
         }
     }
 }
