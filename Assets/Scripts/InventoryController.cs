@@ -115,11 +115,15 @@ public class InventoryController: MonoBehaviour
     void AbriuBau()
     {
         if(abriuBau == true)
-        {
-            SyncInventories(0);
+        {/**
+            for (int i = 0; i < slotsInv.Length; i++)
+            {
+
+            }**/
 
             if (abriuBauCont < 4)
             {
+                SyncInventories(0);
                 abriuBauCont++;
             }
             // Desativar o menu de baú
