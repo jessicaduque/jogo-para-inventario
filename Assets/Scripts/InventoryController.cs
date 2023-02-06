@@ -198,4 +198,27 @@ public class InventoryController: MonoBehaviour
             }
         }
     }
+
+    // Função que ao ser chamada permite a transferência de itens.
+    // Caso lado seja 0, o slot está do aldo do inventário do baú
+    // Caso seja 1, está no próprio baú
+    public void TransferirItem(char slotNum, int lado)
+    {
+        if(lado == 0)
+        {
+            // A cada scroll para cima
+            if(Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+
+            }
+            // A cada scroll para baixo
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+            }
+        }
+        else
+        {
+        }
+    }
+
 }
