@@ -209,7 +209,13 @@ public class InventoryController: MonoBehaviour
             // A cada scroll para cima
             if(Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
+                int slot = slotNum;
+                if (slotsChestInv[slot - 1] != null)
+                {
 
+                }
+                
+               
             }
             // A cada scroll para baixo
             else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
