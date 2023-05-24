@@ -202,24 +202,54 @@ public class InventoryController: MonoBehaviour
     // Função que ao ser chamada permite a transferência de itens.
     // Caso lado seja 0, o slot está do aldo do inventário do baú
     // Caso seja 1, está no próprio baú
-    public void TransferirItem(char slotNum, int lado)
+    public void TransferirItem(int slotNum, int lado)
     {
         if(lado == 0)
         {
             // A cada scroll para cima
             if(Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
-                int slot = slotNum;
-                if (slotsChestInv[slot - 1] != null)
+                if (slotAmountChestInv[slotNum - 1] != 0)
                 {
+                    int slotChestNum = 9;
+                    slotAmountChestInv[slotNum - 1] = slotAmountChestInv[slotNum - 1] - 1;
+                    quantidadesTextChestInv[slotNum - 1].GetComponent<Text>().text = slotAmountChestInv[slotNum - 1].ToString();
+                    if(slotAmountChestInv[slotNum - 1] == 0)
+                    {
+                        quantidadeFundoImageChestInv[slotNum - 1].gameObject.SetActive(false);
+                        quantidadeImageChestInv[slotNum - 1].gameObject.SetActive(false);
+                        slotImageChestInv[slotNum - 1].sprite = slotVazio;
+                    }
+                    for (int i = 0; i < slotsChest.Length; i++)
+                    {
+                        // Se o objeto já existir dentro do baú
+                        if(slotsChest[i] == slotsChestInv[slotNum - 1])
+                        {
+                            slotChestNum = i;
+                            i = slotsChest.Length;
+                        }
+                        // Se o objeto não existir, pega o primeiro slot nulo
+                        else if (slotsChest[i] == null)
+                        {
+                            slotChestNum = i;
+                            i = slotsChest.Length;
+                        }
+                    }
+                    if(slotChestNum != 9)
+                    {
+                        slotAmountChest[slotChestNum] += 1;
+                        quantidadesTextChest[slotChestNum].GetComponent<Text>().text = slotAmountChest[slotChestNum].ToString();
+                    }
 
-                }
-                
+                        /* Inventário do player quando um baú é aberto
+                        public Objects[] slotsChestInv;
+                        public Image[] slotImageChestInv;
+                        public Image[] quantidadeImageChestInv;
+                        public Image[] quantidadeFundoImageChestInv;
+                        public Text[] quantidadesTextChestInv;
+                        public int[] slotAmountChestInv;*/
+                    }
                
-            }
-            // A cada scroll para baixo
-            else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-            {
             }
         }
         else

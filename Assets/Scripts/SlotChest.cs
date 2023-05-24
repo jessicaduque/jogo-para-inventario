@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 public class SlotChest : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public char slotNum;
+    char slotNum;
+    public int slot;
     public int lado;
     bool mouseOver = false;
 
@@ -13,13 +14,19 @@ public class SlotChest : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (mouseOver)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryController>().TransferirItem(slotNum, lado);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryController>().TransferirItem(slot, lado);
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (eventData.fullyExited)
+        {
+            return;
+        }
+        Debug.Log("ESTÁ DENTRO");
         slotNum = eventData.pointerEnter.transform.name[5];
+        slot = (int)char.GetNumericValue(slotNum);
         if(eventData.pointerEnter.transform.parent.parent.name == "Chest Inv")
         {
             lado = 0;
@@ -33,6 +40,7 @@ public class SlotChest : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
     public void OnPointerExit(PointerEventData eventData)
     {
+        Debug.Log("ESTÁ FORA");
         mouseOver = false;
     }
 }
